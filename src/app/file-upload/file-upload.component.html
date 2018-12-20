@@ -1,0 +1,11 @@
+<div class="row ">
+ <div class="col-md-6 ">
+    <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+  <button (click)="fileInput.click()" class="btn btn-primary">Select File</button> &nbsp;
+  <button (click)="onUpload()" class="btn btn-secondary">Upload!</button>
+ </div>
+  <div class="col-md-6" *ngIf="selectedFile">
+    <label >Selected file</label>
+    {{selectedFile.name}}
+  </div>
+</div>
