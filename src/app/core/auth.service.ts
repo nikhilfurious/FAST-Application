@@ -1,19 +1,33 @@
-import { Injectable } from '@angular/core';
-// import {
-//   AngularFireAuth,
-//   AngularFireDatabase,
-//   FirebaseAuthState,
-//   AuthProviders,
-//   AuthMethods,
-//   AngularFire
-// } from '@angular/fire';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-// import { FirebaseAuthState, AngularFire, AngularFireDatabase } from 'angularfire2';
+import { AngularFireAuth } from '../../../node_modules/@angular/fire/auth';
+import * as firebase from 'firebase';
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  user: EventEmitter<firebase.User> = new EventEmitter(null);
+
+  constructor(public afAuth: AngularFireAuth) {
+    this.initialize();
+  }
+
+  initialize() {
+    this.afAuth.user.subscribe((data: firebase.User) => {
+      this.user.emit(data);
+    });
+  }
+
+  login(): Promise<auth.UserCredential> {
+    return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+
+  logout(): Promise<any> {
+    return this.afAuth.auth.signOut();
+  }
   // authState: FirebaseAuthState = null;
 
   // constructor(
