@@ -6,7 +6,9 @@
     <a class="p-2 text-dark" href="#">Admin</a>
     <a class="p-2 text-dark" href="#">Support</a>
   </nav>
-  <a class="btn btn-outline-primary" href="#">Sign up</a>
+  <button class="btn btn-outline-primary" *ngIf="!user" (click)="login()" >Login</button> &nbsp;
+  <button class="btn btn-outline-primary" *ngIf="user" (click)="logout()" >Logout</button>
+
 </div>
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">FAST</h1>
@@ -14,15 +16,29 @@
 </div>
 <div class="container">
 
-  <app-file-upload></app-file-upload>
+  <!-- <app-file-upload></app-file-upload> -->
 
-  <router-outlet></router-outlet>
+  <h2>List of Students</h2>
+  <hr>
 
   <ul>
     <li class="text" *ngFor="let item of items | async">
-      {{item.first}} {{item.last}}
+      {{item.first}} {{item.lastname}}
     </li>
   </ul>
+
+
+  <!-- <button class="btn btn-primary" (click)="toggleStudents()">Toggle Students</button>
+  <ul *ngIf='showStudents'>
+    <li  class="text" style="list-style: none" *ngFor="let student of students">
+       {{student.name}}
+    </li>
+  </ul> -->
+
+
+  <router-outlet></router-outlet>
+
+
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-12 col-md">

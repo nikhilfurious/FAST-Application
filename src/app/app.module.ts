@@ -11,13 +11,18 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { UserLoginComponent } from './users/user-login/user-login.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { AuthService } from './core/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LandingPageComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    UserLoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
