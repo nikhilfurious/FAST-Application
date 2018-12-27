@@ -4,8 +4,12 @@
   <button (click)="fileInput.click()" class="btn btn-primary">Select File</button> &nbsp;
   <button  class="btn btn-secondary">Upload!</button>
  </div>
-  <div class="col-md-6" *ngIf="selectedFile">
+  <div class="col-md-4" *ngIf="selectedFile">
     <label >Selected file</label>
     {{selectedFile.name}}
+    <img [src]= "downloadURL | async" alt="">
+  </div>
+  <div class="col-md-2">
+    {{uploadPercent | async}}
   </div>
 </div>

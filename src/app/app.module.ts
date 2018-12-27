@@ -14,6 +14,9 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { UserLoginComponent } from './users/user-login/user-login.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
 import { AuthService } from './core/auth.service';
+import { StudentListComponent } from './student-list/student-list.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { AuthService } from './core/auth.service';
     LandingPageComponent,
     FileUploadComponent,
     UserLoginComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    StudentListComponent,
+    StudentDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

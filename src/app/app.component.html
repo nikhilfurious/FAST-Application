@@ -2,7 +2,10 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <h5 class="my-0 mr-md-auto font-weight-normal">Sathyabama: Fast</h5>
   <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="#">Students</a>
+      <a routerLink="/students" routerLinkActive="active">Students</a>
+    <!-- <a class="p-2 text-dark" href="#">Students</a> -->
+    <!--
+  <a routerLink="/heroes" routerLinkActive="active">Heroes</a> -->
     <a class="p-2 text-dark" href="#">Admin</a>
     <a class="p-2 text-dark" href="#">Support</a>
   </nav>
@@ -14,9 +17,9 @@
   <h1 class="display-4">FAST</h1>
   <p class="lead">Facial Attendance System and Technology </p>
 </div>
-<div class="container">
+<div class="container-fluid">
 
-  <!-- <app-file-upload></app-file-upload> -->
+  <!-- <app-file-upload></app-file-upload>
 
   <h2>List of Students</h2>
   <hr>
@@ -25,7 +28,7 @@
     <li class="text" *ngFor="let item of items | async">
       {{item.first}} {{item.lastname}}
     </li>
-  </ul>
+  </ul> -->
 
 
   <!-- <button class="btn btn-primary" (click)="toggleStudents()">Toggle Students</button>
