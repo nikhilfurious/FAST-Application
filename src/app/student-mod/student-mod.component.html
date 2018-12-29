@@ -1,0 +1,19 @@
+<form [formGroup]="studentFrom">
+    <div class="form-group">
+      <label for="firstName">First name</label>
+      <input class="form-control" id="firstName" formControlName="firstName" placeholder="First name">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last name</label>
+      <input  class="form-control" id="lastName" formControl="lastName"  placeholder="Last name">
+    </div>
+    <div class="form-group">
+        <label for="year">Year</label>
+        <input  class="form-control" id="year" formControl="year"  placeholder="Year of study">
+      </div>
+    <!-- <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> -->
+    <!-- <button (click)="addStudent()" type="submit" class="btn btn-primary">Submit</button> -->
+  </form>

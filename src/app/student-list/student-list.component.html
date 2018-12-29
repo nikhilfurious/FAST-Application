@@ -1,3 +1,21 @@
-<p>
-  student-list works!
-</p>
+<!-- <button (click)="addNewStudent = true" class"btn btn-primary" >Add Student</button> -->
+
+<app-student-mod *ngIf="addStudent"></app-student-mod>
+<!-- <table *ngIf="!addNewSTudent" class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students | async">
+        <th scope="row">1</th>
+        <td>{{student.lastName}}</td>
+        <td>{{student.firstName}}</td>
+        <td>{{student.year}}</td>
+    </tr>
+  </tbody>
+</table> -->
