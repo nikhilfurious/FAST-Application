@@ -13,12 +13,18 @@ export class StudentListComponent implements OnInit {
   constructor(private studentsService: StudentService) { }
   students: Observable<Student[]>;
   addNewStudent = false;
+
   ngOnInit() {
     this.students = this.studentsService.getStudents();
   }
 
-  addStudent(){
-    this.addNewStudent = true
+  studentAdded() {
+    this.addNewStudent = false;
+  }
+  addStudent() {
+    this.addNewStudent = true;
   }
 
 }
+
+// interface - is an class with methods that has no implementation.

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { StudentService } from '../services/student.service';
 
 @Component({
@@ -9,27 +9,28 @@ import { StudentService } from '../services/student.service';
 })
 export class StudentModComponent implements OnInit {
 
-  studentForm =  new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    year: new FormControl(''),
+  // studentForm =  new FormGroup({
+  //   firstName: new FormControl(''),
+  //   lastName: new FormControl(''),
+  //   year: new FormControl(''),
 
-  });
+  // });
   // studentForm: FormGroup;
 
   @Output()
   studentAdded: EventEmitter<boolean> = new EventEmitter(false);
+  studentForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    year: ['', Validators.required],
+  });
 
   constructor(private fb: FormBuilder, private studentService: StudentService) {
 
    }
 
   ngOnInit() {
-    // this.studentForm = this.fb.group({
-    //   firstName: [''],
-    //   lastName: [''],
-    //   year: ['']
-    // });
+
   }
 
   addStudent() {
