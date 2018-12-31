@@ -11,6 +11,8 @@ export class StudentDetailComponent implements OnInit {
   @Input()
   student: Student;
 
+  isEdit = false;
+
   constructor() { }
 
   ngOnInit() {

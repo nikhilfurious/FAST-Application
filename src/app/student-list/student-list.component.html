@@ -1,9 +1,9 @@
-<button class="btn btn-primary mb-2" (click)="addStudent()">Add new student</button>
+<button class="btn btn-primary mb-2" (click)="addStudent()">Add <i class="fas fa-user-plus"></i></button>
 
 <app-student-mod (studentAdded)="studentAdded()" *ngIf="addNewStudent"></app-student-mod>
 <div class="row">
   <div class="col">
-    <table *ngIf="!addNewStudent" class="table table-bordered">
+    <table *ngIf="!addNewStudent" class="table table-bordered table-hover">
       <thead>
         <tr>
           <th scope="col">#</th>
