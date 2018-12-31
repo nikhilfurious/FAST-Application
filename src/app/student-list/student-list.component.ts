@@ -13,6 +13,8 @@ export class StudentListComponent implements OnInit {
   constructor(private studentsService: StudentService) { }
   students: Observable<Student[]>;
   addNewStudent = false;
+  showStudent = false;
+  selectedStudent: Student = null;
 
   ngOnInit() {
     this.students = this.studentsService.getStudents();
@@ -23,6 +25,18 @@ export class StudentListComponent implements OnInit {
   }
   addStudent() {
     this.addNewStudent = true;
+    this.selectedStudent = null;
+  }
+  showStudentDetail(student: Student) {
+    this.selectedStudent = student;
+  }
+  deleteStudent(student: Student) {
+    this.selectedStudent = null;
+    const result = this.studentsService.deleteStudent(student.id);
+    result.then(() => console.log('student deleted'));
+    result.catch((err) => console.log(`error deleting student : ${err}`));
+
+
   }
 
 }

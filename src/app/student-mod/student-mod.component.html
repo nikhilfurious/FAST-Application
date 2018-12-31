@@ -1,19 +1,4 @@
-<!-- <form [formGroup]="studentFrom">
-    <div class="form-group">
-      <label for="firstName">First name</label>
-      <input class="form-control" id="firstName" formControlName="firstName" placeholder="First name">
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last name</label>
-      <input  class="form-control" id="lastName" formControl="lastName"  placeholder="Last name">
-    </div>
-    <div class="form-group">
-        <label for="year">Year</label>
-        <input  class="form-control" id="year" formControl="year"  placeholder="Year of study">
-      </div>
-
-  </form> -->
-  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="studentForm" >
       <div class="form-group">
           <label for="firstName">First name</label>
           <input class="form-control"  formControlName="firstName" placeholder="First name">
@@ -26,33 +11,19 @@
             <label for="year">Year</label>
             <input  class="form-control"  formControlName="year"  placeholder="Year of study">
           </div>
-          <div class="form-group">
+          <div class="row">
+             <div class="col-lg-3">
               <label for="">Upload profile picture</label>
-              <app-file-upload></app-file-upload>
+             </div>
+             <div class="col">
+              <app-file-upload (fileUploaded)="onFileUploaded($event)"></app-file-upload>
+             </div>
             </div>
 
       <button class="btn btn-primary" (click)="addStudent()" type="submit" [disabled]="!studentForm.valid">Submit</button>
+    &nbsp;  <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
     </form>
 
     <hr>
 
-<!--
-    <p>
-      Form Value: {{ studentForm.value | json }}
-    </p>
 
-
-    <p>
-      Form Status: {{ studentForm.status }}
-    </p>
-
-    <p>
-      <button (click)="updateProfile()">Update Profile</button>
-    </p> -->
-
-
-    <!--
-    Copyright 2017-2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license
-    -->

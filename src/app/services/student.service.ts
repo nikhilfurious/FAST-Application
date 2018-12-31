@@ -28,4 +28,9 @@ export class StudentService {
     const newStudent: Student = {id, ...student};
     return this.students.doc(id).set(newStudent);
   }
+
+  deleteStudent(id: string) {
+    const student = this.db.doc<any>(`students/${id}`);
+    return student.delete();
+  }
 }

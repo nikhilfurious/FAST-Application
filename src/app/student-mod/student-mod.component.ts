@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { StudentService } from '../services/student.service';
+import { FileUpload, Student } from '../models';
 
 @Component({
   selector: 'app-student-mod',
@@ -9,14 +10,7 @@ import { StudentService } from '../services/student.service';
 })
 export class StudentModComponent implements OnInit {
 
-  // studentForm =  new FormGroup({
-  //   firstName: new FormControl(''),
-  //   lastName: new FormControl(''),
-  //   year: new FormControl(''),
-
-  // });
-  // studentForm: FormGroup;
-
+  uploadedFile: FileUpload = null;
   @Output()
   studentAdded: EventEmitter<boolean> = new EventEmitter(false);
   studentForm = this.fb.group({
@@ -34,12 +28,23 @@ export class StudentModComponent implements OnInit {
   }
 
   addStudent() {
-    const result: Promise<any> = this.studentService.addStudent(this.studentForm.value);
+    const newStudent: Student = this.studentForm.value;
+    newStudent.fileUpload = this.uploadedFile;
+   const result: Promise<any> = this.studentService.addStudent(newStudent);
     result.then(data => {
       console.log('student added.');
       this.studentAdded.emit(true);
     })
     .catch(err => console.error(err));
+  }
+
+  onFileUploaded(uploadedFile: FileUpload) {
+    this.uploadedFile = uploadedFile;
+  }
+
+  onCancel() {
+    this.studentForm.reset();
+    this.studentAdded.emit(false);
   }
 
 }

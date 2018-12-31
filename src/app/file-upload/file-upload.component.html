@@ -1,12 +1,12 @@
 <div class="row ">
  <div class="col-md-6 ">
     <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
-  <button (click)="fileInput.click()" class="btn btn-primary">Select File</button> &nbsp;
+  <button (click)="fileInput.click()" class="btn btn-outline-primary btn-sm">Select File</button> &nbsp;
  </div>
   <div class="col-md-4" *ngIf="selectedFile">
     <label >Selected file</label>
     {{selectedFile.name}}
-    <img [src]= "downloadURL | async" alt="">
+    <img [src]= "downloadURL | async" alt="" class="img-thumbnail">
   </div>
   <div class="col-md-2">
     {{uploadPercent | async}}
