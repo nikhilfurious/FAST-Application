@@ -16,8 +16,10 @@ export class StudentModComponent implements OnInit {
   studentForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    year: ['', Validators.required],
+    year: ['First', Validators.required],
   });
+
+  year = ['First', 'Second', 'Third', 'Final'];
 
   constructor(private fb: FormBuilder, private studentService: StudentService) {
 
