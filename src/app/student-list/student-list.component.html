@@ -19,7 +19,7 @@
           <td>{{student.lastName}}</td>
           <td>{{student.firstName}}</td>
           <td>{{student.year}}</td>
-          <td><i (click) = "deleteStudent(student)" style="color: red" class="fas fa-user-times"></i></td>
+          <td> <button class="btn btn-outline-danger" (click) = "deleteStudent(student)" >Delete  <i  class="fas fa-user-times"></i></button> </td>
         </tr>
       </tbody>
     </table>
