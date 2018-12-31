@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col">
     <form [formGroup]="studentForm">
+      
       <div class="form-group">
         <label for="firstName">First name</label>
+
         <input class="form-control" formControlName="firstName" placeholder="First name">
       </div>
       <div class="form-group">
@@ -23,9 +25,12 @@
           <app-file-upload  (fileUploaded)="onFileUploaded($event)"></app-file-upload>
         </div>
       </div>
+      id = {{id}}
+      <button class="btn btn-primary" *ngIf="!id" (click)="addStudent()" type="submit" [disabled]="!studentForm.valid">Submit</button>
+      <button class="btn btn-primary" *ngIf="id" (click)="updateStudent()" type="submit" [disabled]="!studentForm.valid">Update</button>
+      &nbsp;
+      <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
 
-      <button class="btn btn-primary" (click)="addStudent()" type="submit" [disabled]="!studentForm.valid">Submit</button>
-      &nbsp; <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
     </form>
   </div>
   <div class="col"></div>

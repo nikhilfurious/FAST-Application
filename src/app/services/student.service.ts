@@ -29,6 +29,12 @@ export class StudentService {
     return this.students.doc(id).set(newStudent);
   }
 
+  updateStudent(updateStudent: Student): Promise<any> {
+    const student = this.db.doc<any>(`students/${updateStudent.id}`);
+    return student.update(updateStudent);
+
+  }
+
   deleteStudent(id: string) {
     const student = this.db.doc<any>(`students/${id}`);
     return student.delete();

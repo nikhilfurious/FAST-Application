@@ -31,9 +31,11 @@ export class StudentListComponent implements OnInit {
     this.selectedStudent = student;
   }
   deleteStudent(student: Student) {
-    this.selectedStudent = null;
     const result = this.studentsService.deleteStudent(student.id);
-    result.then(() => console.log('student deleted'));
+    result.then(() => {
+      this.selectedStudent = null;
+      console.log('student deleted');
+    });
     result.catch((err) => console.log(`error deleting student : ${err}`));
 
 

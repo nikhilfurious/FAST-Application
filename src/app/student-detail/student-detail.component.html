@@ -3,6 +3,8 @@
   <div class="card-body">
     <h5 class="card-title">{{student.firstName}} {{student.lastName}}</h5>
     <p class="card-text">{{student.year}} year</p>
-    <button class="btn btn-primary">Edit <i class="fas fa-user-edit"></i></button>
+    <button (click)="isEdit=true" class="btn btn-primary">Edit <i class="fas fa-user-edit"></i></button>
   </div>
 </div>
+
+<app-student-mod (studentAdded)="isEdit=false;" [student]="student"  *ngIf="isEdit" ></app-student-mod>
